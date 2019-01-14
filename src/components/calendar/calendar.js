@@ -7,7 +7,7 @@ export default class Calendar extends Component {
   getWeeks = (date) => {
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
     const daysCount = lastDay.getDate();
-    let weeks = {}
+    let weeks = {};
 
     let weeksCount = 1;
     let weekDays = [];
@@ -15,25 +15,22 @@ export default class Calendar extends Component {
       weekDays.push(i);
 
       if (new Date(date.getFullYear(), date.getMonth(), i).getDay() === 6) {
-        // alert(weekDays);
-
         weeks[weeksCount] = weekDays;
-
         weeksCount++;
         weekDays = [];
       } else if (i === daysCount) {
         weeks[weeksCount] = weekDays;
-      }
+      };
     };
-    return weeks
+    return weeks;
   };
 
   render() {
 
     const currentDate = new Date;
-    const currentMonth = currentDate.getMonth()
+    const currentMonth = currentDate.getMonth();
 
-    console.log(this.getWeeks(currentDate))
+    console.log(this.getWeeks(currentDate));
 
     // const weeksCount =
     // return (
