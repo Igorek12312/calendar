@@ -15,9 +15,7 @@ export default class App extends Component {
             <Calendar />
           </div>
 
-          <div className="col-12 col-lg-3">
-            <TodoDailyList />
-          </div>
+
 
         </div>
       </span>
@@ -25,3 +23,6 @@ export default class App extends Component {
 
   };
 };
+// <div className="col-12 col-lg-3">
+//   <TodoDailyList />
+// </div>
