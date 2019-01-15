@@ -31,14 +31,14 @@ export default class Calendar extends Component {
 
   render() {
 
-    const currentDate = new Date;
-    const currentMonth = currentDate.getMonth();
+    const currentDate = new Date();
+    // const currentMonth = currentDate.getMonth();
 
     const weeks = this.getWeeks(currentDate);
 
     const items = Object.keys(weeks).map((week) => {
-      const isFirstWeek = (week == 1) ? true : false;
-      const isLastWeek = (week == Object.keys(weeks).length) ? true : false;
+      const isFirstWeek = (+week === 1) ? true : false;
+      const isLastWeek = (+week === Object.keys(weeks).length) ? true : false;
 
       return (
         <WeekRow
