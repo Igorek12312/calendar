@@ -72,7 +72,9 @@ export default class Calendar extends Component {
 
     return (
       <div className="col-12 col-lg-8">
-        { monthNames[currentDate.getMonth()] } { currentDate.getFullYear() }
+        <div className="calendar-header">
+          { monthNames[currentDate.getMonth()] } { currentDate.getFullYear() }
+        </div>
         <div className="row">
           <div className="col-1 col-lg-1">
             <button className="navigate-button btn" height="500px"
