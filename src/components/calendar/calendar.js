@@ -73,15 +73,23 @@ export default class Calendar extends Component {
     return (
       <div className="col-12 col-lg-8">
         { monthNames[currentDate.getMonth()] } { currentDate.getFullYear() }
-          <button className="btn"
-            onClick={() => this.prewMonth(currentDate)}>
-              Prew
-          </button>
-          {items}
-          <button className="btn"
-            onClick={() => this.nextMonth(currentDate)}>
-              Next
-          </button>
+        <div className="row">
+          <div className="col-1 col-lg-1">
+            <button className="navigate-button btn" height="500px"
+              onClick={() => this.prewMonth(currentDate)}>
+                &lt;
+            </button>
+          </div>
+          <div className="col-9 col-lg-9">
+            {items}
+          </div>
+          <div className="col-1 col-lg-1">
+            <button className="navigate-button btn"
+              onClick={() => this.nextMonth(currentDate)}>
+                &gt;
+            </button>
+          </div>
+        </div>
       </div>
     );
   };

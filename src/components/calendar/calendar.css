@@ -13,3 +13,14 @@
 .cal_title{
     height: 30px;
 }
+
+.navigate-button {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+
+.navigate-button:hover{
+    background-color: #2391;
+}
