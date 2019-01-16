@@ -12,7 +12,7 @@ export default class WeekRow extends Component {
       const addDays = 7 - this.props.currentWeek.length;
       startEmptyDays = Array(addDays).fill().map(() => {
         return (
-          <div className="col border-bottom cal_day">
+          <div className="col border-bottom cal-empty">
           </div>
         )
       });
@@ -23,7 +23,7 @@ export default class WeekRow extends Component {
       const addDays = 7 - this.props.currentWeek.length;
       endEmptyDays = Array(addDays).fill().map(() => {
         return (
-          <div className="col border-bottom cal_day">
+          <div className="col border-bottom cal-empty">
           </div>
         )
       });
@@ -31,7 +31,7 @@ export default class WeekRow extends Component {
 
     const days = Object.keys(this.props.currentWeek).map((day) => {
       return (
-        <div className="col border-bottom cal_day">
+        <div className="col border-bottom cal-day">
           {this.props.currentWeek[day]}
         </div>
       )
