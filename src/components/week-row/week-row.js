@@ -21,7 +21,6 @@ export default class WeekRow extends Component {
     let endEmptyDays = null
     if (this.props.isLastWeek) {
       const addDays = 7 - this.props.currentWeek.length;
-      console.log(addDays)
       endEmptyDays = Array(addDays).fill().map(() => {
         return (
           <div className="col border-bottom cal_day">

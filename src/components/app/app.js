@@ -8,21 +8,16 @@ import './app.css'
 export default class App extends Component {
   render() {
     return (
-      <span className="container">
+      <div className="container">
         <div className="row justify-content-between">
 
-          <div className="col-12 col-lg-8">
-            <Calendar />
-          </div>
-
+          <Calendar />
 
 
         </div>
-      </span>
+      </div>
       );
 
   };
 };
-// <div className="col-12 col-lg-3">
-//   <TodoDailyList />
-// </div>
+// <TodoDailyList />

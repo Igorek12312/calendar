@@ -5,15 +5,17 @@ import './calendar.css';
 
 export default class Calendar extends Component {
 
+  state = {
+    currentDate: new Date()
+  };
+
+
   getWeeks = (date) => {
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
     const daysCount = lastDay.getDate();
     let weeks = {};
-
     let weeksCount = 1;
     let weekDays = [];
-    const startMonth = new Date(date.getFullYear(), date.getMonth(), 1).getDay()
-    const endMonth = new Date(date.getFullYear(), date.getMonth(), lastDay).getDay()
 
     for (var i = 1; i <= daysCount; i++) {
       weekDays.push(i);
@@ -29,10 +31,29 @@ export default class Calendar extends Component {
     return weeks;
   };
 
+
+  prewMonth = (curDate) => {
+    const newDate = new Date(curDate.getFullYear(), curDate.getMonth()-1);
+    this.setState({
+      currentDate: newDate
+    });
+  };
+
+
+  nextMonth = (curDate) => {
+    const newDate = new Date(curDate.getFullYear(), curDate.getMonth()+1);
+    this.setState({
+      currentDate: newDate
+    });
+  };
+
+
   render() {
 
-    const currentDate = new Date();
-    // const currentMonth = currentDate.getMonth();
+    const { currentDate } = this.state;
+
+    const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+    "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
 
     const weeks = this.getWeeks(currentDate);
 
@@ -48,9 +69,19 @@ export default class Calendar extends Component {
       );
     });
 
+
     return (
       <div className="col-12 col-lg-8">
-        {items}
+        { monthNames[currentDate.getMonth()] } { currentDate.getFullYear() }
+          <button className="btn"
+            onClick={() => this.prewMonth(currentDate)}>
+              Prew
+          </button>
+          {items}
+          <button className="btn"
+            onClick={() => this.nextMonth(currentDate)}>
+              Next
+          </button>
       </div>
     );
   };
