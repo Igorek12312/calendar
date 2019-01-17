@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Calendar from '../calendar';
-import TodoDailyList from '../todo-daily-list';
+// import TodoDailyList from '../todo-daily-list';
 
 import './app.css'
 
