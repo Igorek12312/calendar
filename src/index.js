@@ -9,7 +9,7 @@ import Navbar from './components/navbar';
 // import Homepage from './components/homepage';
 import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
-// import Signup from './components/auth/singup';
+import Signup from './components/auth/signup';
 import reducers from './reducers';
 import App from './components/app'
 
@@ -33,6 +33,7 @@ ReactDOM.render(
         <Navbar />
         <Route exact path="/" component={App} />
         <Route path="/signin" component={noRequireAuth(Signin)} />
+        <Route path="/signup" component={Signup} />
         <Route path="/secret" component={requireAuth(App)} />
         <Route path="/signout" component={requireAuth(Signout)} />
       </div>
