@@ -33,7 +33,7 @@ ReactDOM.render(
         <Navbar />
         <Route exact path="/" component={App} />
         <Route path="/signin" component={noRequireAuth(Signin)} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/signup" component={noRequireAuth(Signup)} />
         <Route path="/secret" component={requireAuth(App)} />
         <Route path="/signout" component={requireAuth(Signout)} />
       </div>

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class Signup extends Component {
   submit = (values) => {
-    this.props.signUpAction(values);
+    this.props.signUpAction(values, this.props.history);
   }
 
   errorMessage() {
@@ -49,7 +49,7 @@ class Signup extends Component {
 }
 
 function mapStateToProps(state) {
-  return { erroeMessage: state.auth.error };
+  return { errorMessage: state.auth.error };
 }
 
 const reduxFormSignup = reduxForm({

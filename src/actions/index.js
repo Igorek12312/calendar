@@ -41,7 +41,9 @@ export function signUpAction({username, email, password}, history) {
       console.log('REGISTRATION_SUCCESS');
       dispatch({ type: REGISTRATION_SUCCESS });
 
-
+      const res = await axios.post(`${URL}/api-token-auth/`, { username, password });
+      localStorage.setItem('user', res.data.token);
+      history.push('/secret');
 
     } catch(error) {
       dispatch({

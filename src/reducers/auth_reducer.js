@@ -4,7 +4,7 @@ import { REGISTRATION_SUCCESS, REGISTRATION_ERROR, AUTHENTICATED,
 export default function(state={}, action) {
   switch (action.type) {
     case REGISTRATION_SUCCESS:
-      return { ...state, signup: true, error: {} };
+      return { ...state, authenticated: true, signup: true, error: {} };
     case REGISTRATION_ERROR:
       return { ...state, signup: false, error: { signup: action.payload } };
     case AUTHENTICATED:
