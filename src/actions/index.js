@@ -8,12 +8,15 @@ export const AUTHENTICATED_ERROR = 'authenticated_error';
 
 const URL = 'http://localhost:8000';
 
+
 export function signInAction({ username, password }, history) {
   return async (dispatch) => {
     try {
       const res = await axios.post(`${URL}/api-token-auth/`, { username, password });
 
       dispatch({ type: AUTHENTICATED });
+      // const res2 = await axios.post(`${URL}/api-token-verify/`, { username, password });
+      // console.log(res2);
       localStorage.setItem('user', res.data.token);
       history.push('/secret');
     } catch(error) {

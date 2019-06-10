@@ -14,8 +14,8 @@ import reducers from './reducers';
 import App from './components/app'
 
 import { AUTHENTICATED } from './actions';
-import requireAuth from './components/hoc/require_auth';
-import noRequireAuth from './components/hoc/no_require_auth';
+import requireAuth from './components/hoc/require-auth';
+import noRequireAuth from './components/hoc/no-require-auth';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);

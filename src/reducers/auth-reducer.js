@@ -13,6 +13,8 @@ export default function(state={}, action) {
       return { ...state, authenticated: false};
     case AUTHENTICATED_ERROR:
       return { ...state, error: action.payload};
+    default:
+      return state;
   }
-  return state;
+  // return state;
 }
