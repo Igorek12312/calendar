@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import DayCell from '../day-cell';
 import './week-row.css';
 
 export default class WeekRow extends Component {
@@ -31,9 +31,10 @@ export default class WeekRow extends Component {
 
     const days = Object.keys(this.props.currentWeek).map((day) => {
       return (
-        <div className="col border-bottom cal-day">
-          {this.props.currentWeek[day]}
-        </div>
+        <DayCell day={this.props.currentWeek[day]}/>
+        // <div className="col border-bottom cal-day">
+        //   {this.props.currentWeek[day]}*
+        // </div>
       )
     });
 

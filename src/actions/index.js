@@ -15,9 +15,9 @@ export function signInAction({ username, password }, history) {
       const res = await axios.post(`${URL}/api-token-auth/`, { username, password });
 
       dispatch({ type: AUTHENTICATED });
-      // const res2 = await axios.post(`${URL}/api-token-verify/`, { username, password });
-      // console.log(res2);
       localStorage.setItem('user', res.data.token);
+      // const res2 = await axios.post(`${URL}/api-token-verify/`, res.data.token );
+      // console.log(res2);
       history.push('/secret');
     } catch(error) {
       dispatch({

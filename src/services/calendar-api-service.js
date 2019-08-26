@@ -3,7 +3,8 @@ export default class CalendarApiService {
   _apiBase = 'http://localhost:8000';
 
   getResource = async (url) => {
-    const res = await fetch(`${this._apiBase}${url}`);
+    const userToken = localStorage.getItem('user')
+    const res = await fetch(`${this._apiBase}${url}`, {headers: {'Authorization': `JWT ${userToken}`}});
 
     if (!res.ok) {
       throw new Error(`Could not fetch ${url}, received ${res.status}`)
@@ -12,7 +13,7 @@ export default class CalendarApiService {
   };
 
   getAllEvents = async () => {
-    const res = await this.getResource(`/event/`);
+    const res = await this.getResource(`/events/`);
     return res.map(this._transformEvent);
   };
 
