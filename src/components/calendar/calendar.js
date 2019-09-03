@@ -47,8 +47,8 @@ export default class Calendar extends Component {
     });
   };
 
-
   render() {
+    const { onDaySelected } = this.props
 
     const { currentDate } = this.state;
 
@@ -58,17 +58,17 @@ export default class Calendar extends Component {
     const weeks = this.getWeeks(currentDate);
 
     const items = Object.keys(weeks).map((week) => {
-      const isFirstWeek = (+week === 1) ? true : false;
-      const isLastWeek = (+week === Object.keys(weeks).length) ? true : false;
+    const isFirstWeek = (+week === 1) ? true : false;
+    const isLastWeek = (+week === Object.keys(weeks).length) ? true : false;
 
-      return (
-        <WeekRow
-          currentWeek={weeks[week]}
-          isFirstWeek={isFirstWeek}
-          isLastWeek={isLastWeek}/>
-      );
+    return (
+      <WeekRow
+        currentWeek={weeks[week]}
+        isFirstWeek={isFirstWeek}
+        isLastWeek={isLastWeek}
+        onDaySelected={(day) => onDaySelected(this.state.currentDate.getFullYear(), this.state.currentDate.getMonth()+1, day)}/>
+    );
     });
-
 
     return (
       <div className="col-12 col-lg-8">

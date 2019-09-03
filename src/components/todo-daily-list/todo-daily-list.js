@@ -21,13 +21,15 @@ export default class TodoDailyList extends Component {
     });
   }
 
-  renderItems(arr) {
+  renderItems(arr, day) {
     return arr.map(({eventDate, eventText}) => {
-      return (
-        <div className="event">
-          <p>{eventDate}: {eventText}</p>
-        </div>
-      );
+      if (eventDate === day) {
+        return (
+          <div className="event">
+            <p>{eventDate}: {eventText}</p>
+          </div>
+        );
+      }
     });
   }
 
@@ -41,10 +43,11 @@ export default class TodoDailyList extends Component {
       )
     }
 
-    const items = this.renderItems(eventList);
+    const items = this.renderItems(eventList, this.props.day);
 
     return (
       <div className="todo-daily-list list-group col-12 col-lg-4">
+        {this.props.day}
         {items}
         <button className="btn btn-outline-secondary btn-sm"
           onClick={() => console.log('click')}>

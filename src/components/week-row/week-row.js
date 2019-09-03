@@ -6,6 +6,8 @@ export default class WeekRow extends Component {
 
 
   render() {
+    const { onDaySelected } = this.props
+
 
     let startEmptyDays = null
     if (this.props.isFirstWeek) {
@@ -30,11 +32,13 @@ export default class WeekRow extends Component {
     };
 
     const days = Object.keys(this.props.currentWeek).map((day) => {
+      const currDay = this.props.currentWeek[day]
       return (
-        <DayCell day={this.props.currentWeek[day]}/>
-        // <div className="col border-bottom cal-day">
-        //   {this.props.currentWeek[day]}*
-        // </div>
+        <div className="col border-bottom cal-day"
+              key={currDay}
+              onClick={() => onDaySelected(currDay)}>
+            {currDay}
+        </div>
       )
     });
 
